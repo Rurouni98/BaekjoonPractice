@@ -1,0 +1,37 @@
+문제
+꼬마 정민이는 이제 A + B 정도는 쉽게 계산할 수 있다. 이제 A + B + C를 계산할 차례이다!
+
+입력
+첫 번째 줄에 A, B, C (1 ≤ A, B, C ≤ 1012)이 공백을 사이에 두고 주어진다.
+
+예제 입력 1 
+77 77 7777
+예제 출력 1 
+7931
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		String[] strs = br.readLine().split(" ");
+		
+		long A = Long.parseLong(strs[0]);
+		long B = Long.parseLong(strs[1]);
+		long C = Long.parseLong(strs[2]);
+		
+		bw.write((A + B + C) + "");
+		
+		bw.flush();
+		bw.close();
+		br.close();
+	}
+
+}
