@@ -1,5 +1,3 @@
-num = int(input())
-for i in range(0, num):
-    for j in range(i, num):
-        print("*", end = "")
-    print()
+N, M = map(int, input().split(" "))
+square = [list(map(int, input())) for _ in range(N)]
+size = M if N > M else N
