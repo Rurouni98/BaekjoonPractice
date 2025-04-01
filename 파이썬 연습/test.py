@@ -1,20 +1,30 @@
-word = input()
-min_word = None
+board = input()
+pattern1 = 'AAAA'
+pattern2 = 'BB'
+cnt = 0
+new_board = []
+for char in board:
+    if char == 'X':
+        cnt += 1
+    elif char == '.':
+        if cnt > 0:
+            a = cnt // 4
+            cnt %= 4
+            b = cnt // 2
+            if cnt % 2 != 0:
+                new_board = ['-1']
+                break
+            new_board.append(pattern1 * a + pattern2 * b)
+            cnt = 0
+        new_board.append('.')
 
-# i는 첫 번째 자르기 위치 (1부터 len(word)-2까지)
-for i in range(1, len(word) - 1):
-    # j는 두 번째 자르기 위치 (i+1부터 len(word)-1 까지)
-    for j in range(i + 1, len(word)):
-        # 세 부분으로 나누기
-        part1 = word[:i]
-        part2 = word[i:j]
-        part3 = word[j:]
+if cnt > 0:
+    a = cnt // 4
+    cnt %= 4
+    b = cnt // 2
+    if cnt % 2 != 0:
+        new_board = ['-1']
+    else:
+        new_board.append(pattern1 * a + pattern2 * b)
 
-        # 각각 뒤집고 합치기
-        new_word = part1[::-1] + part2[::-1] + part3[::-1]
-
-        # 사전 순으로 가장 앞서는 단어 선택
-        if min_word is None or new_word < min_word:
-            min_word = new_word
-
-print(min_word)
+print(''.join(new_board))
