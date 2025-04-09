@@ -1,7 +1,9 @@
-N = int(input()) # N은 로프의 갯수
-ropes = [int(input()) for _ in range(N)]
-ropes.sort()
-max_weight = 0
-for i in range(N):
-    max_weight = max(max_weight, ropes[i] * (N - i))
-print(max_weight)
+people = int(input())
+tips = [int(input()) for _ in range(people)]
+tips.sort(reverse=True)
+maxSum = 0
+diff = 0
+for tip in tips:
+    maxSum += (tip - diff) if tip - diff >= 0 else 0
+    diff += 1
+print(maxSum)
